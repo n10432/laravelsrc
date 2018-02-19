@@ -16,6 +16,7 @@ Route::get('/', function () {
 });
 
 Auth::routes();
-
 Route::get('aidata', 'AIdataController@index');
+Route::post('aidata/upload', 'AIdataController@upload')->name('aidataupload');
+Route::post('aidata/list', 'AIdataController@list');
 Route::get('/home', 'HomeController@index')->name('home');

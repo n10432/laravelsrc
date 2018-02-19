@@ -15,6 +15,10 @@ class CreateAidataTable extends Migration
     {
         Schema::create('aidata', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('filename');
+            $table->string('filetype');
+            $table->string('explanation');
+            $table->string('username');
             $table->timestamps();
         });
     }
