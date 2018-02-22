@@ -10,11 +10,11 @@
  
         <div class="form-group">
             <label>filename</label><span class="label label-danger">必須</span>
-            <input type="text" class="form-control" name="filename" placeholder="氏名を入力してください">
+            <input type="text" class="form-control" name="username" placeholder="氏名を入力してください">
         </div>
         <div class="form-group">
             <label>username</label><span class="label label-danger">必須</span>
-            <input type="text" class="form-control" name="username" placeholder="メールアドレスを入力してください">
+            <input type="text" class="form-control" name="email" placeholder="メールアドレスを入力してください">
         </div>
         <div class="form-group">
             <label>filetype</label><span class="label label-danger">必須</span>

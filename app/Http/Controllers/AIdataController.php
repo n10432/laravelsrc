@@ -21,13 +21,28 @@ class AIdataController extends Controller
     {
         //$filename = $request->file('filedata')->getClientOriginalName();
         $file = $request->file('filedata')->store('images');
+        $filename = $request->file('filedata')->getClientOriginalName();
         $message = 'test';
         $name = $request->username;
+
+        $aidata = new AIdata;
+        $aidata->filename = $filename;
+        $aidata->filetype = $request->filetype;
+        $aidata->explanation = $request->explanation;
+        $aidata->username = $request->username;
+        $aidata->save();
+        
         if ($request->hasFile('filedata')) {
             $message = 'そのようなファイルは存在しています。';
         }
         $data = ['msg' => $message, 'name' => $name];
         return view('aidata.test', $data);
+    }
+
+    public function showmodel(Request $request)
+    {
+        $items = AIdata::all();
+        return view('aidata.database', ['items' => $items]);
     }
     
 }
