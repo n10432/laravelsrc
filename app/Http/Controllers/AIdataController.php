@@ -17,5 +17,17 @@ class AIdataController extends Controller
         return view('aidata.index', compact('filetypes'));
     }
 
+    public function upload(Request $request)
+    {
+        //$filename = $request->file('filedata')->getClientOriginalName();
+        $file = $request->file('filedata')->store('images');
+        $message = 'test';
+        $name = $request->username;
+        if ($request->hasFile('filedata')) {
+            $message = 'そのようなファイルは存在しています。';
+        }
+        $data = ['msg' => $message, 'name' => $name];
+        return view('aidata.test', $data);
+    }
     
 }

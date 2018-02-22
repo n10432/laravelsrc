@@ -4,7 +4,8 @@
 <div class="container">
     <h3>Laravelで簡単なフォームを作ってみる</h3>
  
-    <form method="POST" action="{{ route('aidataupload') }}">
+    <form method="post" action="{{ route('aidataupload') }}" enctype="multipart/form-data">
+        {{ csrf_field() }}
         <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
  
         <div class="form-group">
@@ -30,12 +31,13 @@
         </div>
         <div class="form-group">
         <label for="photo">ファイル:</label>
-        <input type="file" class="form-control" name="filedata">
+        <input id="filedata" type="file" class="form-control" name="filedata">
         </div>
         <div class="form-group">
             <label>explanation</label>
             <textarea class="form-control" name="explanation" rows="3" placeholder="内容を入力してください"></textarea>
         </div>
+        
         <div class="form-group row">
             <div class="offset-sm-2 col-sm-10">
                 <button type="submit" class="btn btn-primary">確認する</button>
