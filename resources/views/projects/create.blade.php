@@ -2,7 +2,7 @@
 @section('content')
 
 <div class="container">
-    <h3>Laravelで簡単なフォームを作ってみる</h3>
+    <h3>新規プロジェクトの作成</h3>
  
     <form method="post" action="{{ route('aidataupload') }}" enctype="multipart/form-data">
         {{ csrf_field() }}
