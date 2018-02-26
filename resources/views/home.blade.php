@@ -2,22 +2,31 @@
 
 @section('content')
 <div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card card-default">
-                <div class="card-header">Dashboard</div>
-
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    You are logged in!
-                </div>
-            </div>
-        </div>
-    </div>
+    <table  class="table table-hover">
+    <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">目次</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+    <th scope="row">1</th>
+    <td>
+        <a class="navbar-brand" href="{{ url($userid) }}">
+        プロジェクトの作成
+        </a>
+    </td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>
+        <a class="navbar-brand" href="{{ url($userid) }}">
+        ホーム画面へ飛ぶ
+        </a>
+      </td>
+    </tr>
+  </tbody>
+    </table>
 </div>
 @endsection

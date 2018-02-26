@@ -16,10 +16,7 @@ class ProjectController extends Controller
 
     public function form(Request $request)
     {
-        //$items = Person::all();
-        //$user = Auth::user();
-        $filetypes = AIdata::$filetypes;
-        return view('home');
+        return view('projects.form');
     }
 
     public function create(Request $request)
