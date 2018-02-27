@@ -13,7 +13,7 @@
     <tr>
     <th scope="row">1</th>
     <td>
-        <a class="navbar-brand" href="{{ url($userid) }}">
+        <a class="navbar-brand" href="{{ url('new') }}">
         プロジェクトの作成
         </a>
     </td>

@@ -28,9 +28,9 @@ Route::get('/', function () {
 
 
 //新規プロジェクトの作成
-Route::get('new', 'ProjectController@form');//新規プロジェクトの作成
+Route::get('new', 'ProjectController@form');//新規プロジェクト作成画面
 Route::get('user', 'UserController@index')->middleware('auth');//ユーザのホームに飛ぶ
-Route::post('new', 'ProjectController@create');//新規プロジェクトの作成
+Route::post('new', 'ProjectController@create');//新規プロジェクトの登録
 
 //ユーザプロジェクト管理画面
 Route::get('{userid}', 'UserController@index')->middleware('CheckURLMiddleware');//ユーザのホームに飛ぶ

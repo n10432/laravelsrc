@@ -7,4 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 class Project extends Model
 {
     protected $table = 'projects';
+    protected $fillable = [
+        'projectname', 'email', 'datatype', 'description', 'privacy'
+    ];
+    static $datatypes = [
+        'テキスト', '画像'
+    ];
+    static $privacies = [
+        'public', 'private'
+    ];
+
 }
