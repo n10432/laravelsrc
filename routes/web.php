@@ -21,20 +21,16 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 //////以下は本番用
 //ホーム画面
-Route::get('/', function () {
-    return view('welcome');
-});
-
-
-
+Route::get('/', 'HomeController@index');
 //新規プロジェクトの作成
 Route::get('new', 'ProjectController@form');//新規プロジェクト作成画面
 Route::get('user', 'UserController@index')->middleware('auth');//ユーザのホームに飛ぶ
 Route::post('new', 'ProjectController@create');//新規プロジェクトの登録
 
 //ユーザプロジェクト管理画面
-Route::get('{userid}', 'UserController@index')->middleware('CheckURLMiddleware');//ユーザのホームに飛ぶ
-Route::get('{userid}/{project}', 'ProjectController@index');//プロジェクトホーム。生データの一覧
+Route::get('{userid}', 'HomeController@index')->middleware('CheckURLMiddleware');//ユーザのホームに飛ぶ
+Route::get('{userid}/projects', 'ProjectController@index')->middleware('CheckURLMiddleware');;//プロジェクト一覧
+Route::get('{userid}/{project}', 'ProjectController@project');//プロジェクトホーム。生データの一覧
 
 
 Route::get('{userid}/{project}/new', 'RawController@new');//新規生データの登録

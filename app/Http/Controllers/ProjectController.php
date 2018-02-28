@@ -8,12 +8,12 @@ use Illuminate\Support\Facades\Auth;
 
 class ProjectController extends Controller
 {
-    public function show(Request $request)
+    public function index(Request $request)
     {
         //$items = Person::all();
         //$user = Auth::user();
-        $datatypes = Project::$datatypes;
-        return view('aidata.index', compact('datatypes'));
+        $projects = Project::all();
+        return view('projects.index', compact('projects'));
     }
 
     public function form(Request $request)
@@ -23,6 +23,15 @@ class ProjectController extends Controller
             'privacies'=>Project::$privacies
         ];
         return view('projects.form', $data);
+    }
+
+    public function project(Request $request)
+    {
+        $data = [
+            'datatypes'=>Project::$datatypes,
+            'privacies'=>Project::$privacies
+        ];
+        return view('projects.project', $data);
     }
 
     public function create(Request $request)
@@ -35,7 +44,11 @@ class ProjectController extends Controller
         $project->description = $request->description;
         $project->privacy = $request->privacy;
         $project->save();
-        return view('projects.project');
+        $data = [
+            'datatypes'=>Project::$datatypes,
+            'privacies'=>Project::$privacies
+        ];
+        return view('projects.form', $data);
     }
 
 }
