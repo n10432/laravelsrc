@@ -4,16 +4,21 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Project;
+use App\User;
 use Illuminate\Support\Facades\Auth;
 
 class ProjectController extends Controller
 {
     public function index(Request $request)
     {
-        //$items = Person::all();
-        //$user = Auth::user();
-        $projects = Project::all();
-        return view('projects.index', compact('projects'));
+        $userid = $request->route()->parameter('userid');
+        $email = User::where('name',$userid)->first()->email;
+        $projects = Project::where('email',$email)->get();
+        $data = [
+            'userid'=>$userid,
+            'projects'=>$projects
+        ];
+        return view('projects.index', $data);
     }
 
     public function form(Request $request)
@@ -27,9 +32,12 @@ class ProjectController extends Controller
 
     public function project(Request $request)
     {
+        $userId = $request->route()->parameter('userid');
+        $projectId = $request->route()->parameter('project');
+        
         $data = [
-            'datatypes'=>Project::$datatypes,
-            'privacies'=>Project::$privacies
+            'userId'=>$userId,
+            'projectId'=>$projectId
         ];
         return view('projects.project', $data);
     }
