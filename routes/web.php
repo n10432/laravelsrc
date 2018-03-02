@@ -29,17 +29,17 @@ Route::post('new', 'ProjectController@create');//新規プロジェクトの登�
 
 //ユーザプロジェクト管理画面
 Route::get('{userid}', 'HomeController@index')->middleware('CheckURLMiddleware');//ユーザのホームに飛ぶ
-Route::get('{userid}/projects', 'ProjectController@index')->middleware('CheckURLMiddleware');;//プロジェクト一覧
+Route::get('{userid}/projects', 'ProjectController@index')->middleware('CheckURLMiddleware');//プロジェクト一覧
 Route::get('{userid}/{project}', 'ProjectController@project');//プロジェクトホーム。生データの一覧
 
 
 Route::get('{userid}/{project}/new', 'RawController@new');//新規生データの登録
-Route::get('{userid}/{project}/{raw}', 'RawController@show');//生データの閲覧
-Route::get('{userid}/{project}/{raw}/format', 'RawController@edit');//生データの加工
+Route::get('{userid}/{project}/raw/{raw}', 'RawController@show');//生データの閲覧
+Route::get('{userid}/{project}/raw/{raw}/format', 'RawController@edit');//生データの加工
 
 Route::get('{userid}/{project}/format', 'FormatController@index');//加工データの一覧
-Route::get('{userid}/{project}/{format}/', 'FormatController@index');//加工データの閲覧
-Route::get('{userid}/{project}/{format}/bind', 'FormatController@index');//加工データの結合
+Route::get('{userid}/{project}/format/{format}', 'FormatController@index');//加工データの閲覧
+Route::get('{userid}/{project}/format/{format}/bind', 'FormatController@index');//加工データの結合
 
 Route::get('{userid}/{project}/bind', 'BindController@index');//結合データの一覧
 

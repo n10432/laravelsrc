@@ -15,6 +15,11 @@ class CreateFormatsTable extends Migration
     {
         Schema::create('formats', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('formatname');
+            $table->string('originalrawid');
+            $table->string('email');
+            $table->string('projectid');
+            $table->string('description');
             $table->timestamps();
         });
     }
