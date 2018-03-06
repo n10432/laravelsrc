@@ -16,9 +16,9 @@ class CheckRawMiddleware
      */
     public function handle($request, Closure $next)
     {
-        $userId = $request->route()->parameter('userid');
-        $user = Raw::where('rawname',$userId)->first();
-        if (! $user) {
+        $rawname = $request->route()->parameter('rawname');
+        $rawmodel = Raw::where('rawname',$rawname)->first();
+        if (! $rawmodel) {
             abort(404);
         }
         return $next($request);

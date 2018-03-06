@@ -10,7 +10,7 @@
     </div>
 @foreach ( $projects as $project)
     <div class="row">
-        <div class="col-sm-2"><a href="{{ url($userid . '/' . $project->id) }}">{{$project->projectname}}</a></div>
+        <div class="col-sm-2"><a href="{{ url($userid . '/' . $project->projectname) }}">{{$project->projectname}}</a></div>
         <div class="col-sm-2"><div>{{$project->datatype}}</div></div>
         <div class="col-sm-4"><div>{{$project->description}}</div></div>
         <div class="col-sm-2"><div>{{$project->privacy}}</div></div>

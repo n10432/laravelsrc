@@ -2,8 +2,8 @@
 @section('content')
 
 <div class="container">
-{{$userId}}
-{{$projectId}}
+{{$userid}}
+{{$projectname}}
 <table  class="table table-hover">
     <thead>
     <tr>
@@ -23,7 +23,7 @@
     <tr>
     <th scope="row">1</th>
     <td>
-        <a class="navbar-brand" href="{{ url('new') }}">
+        <a class="navbar-brand" href="{{ url($userid . '/' . $projectname . '/new') }}">
         生データの追加
         </a>
     </td>

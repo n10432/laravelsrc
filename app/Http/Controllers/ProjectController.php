@@ -11,9 +11,9 @@ class ProjectController extends Controller
 {
     public function index(Request $request)
     {
-        $userid = $request->route()->parameter('userid');
-        $email = User::where('name',$userid)->first()->email;
-        $projects = Project::where('email',$email)->get();
+        $param = $request->route()->parameter('userid');
+        $userid = User::where('userid',$param)->first()->userid;
+        $projects = Project::where('userid',$userid)->get();
         $data = [
             'userid'=>$userid,
             'projects'=>$projects
@@ -32,12 +32,12 @@ class ProjectController extends Controller
 
     public function project(Request $request)
     {
-        $userId = $request->route()->parameter('userid');
-        $projectId = $request->route()->parameter('project');
+        $userid = $request->route()->parameter('userid');
+        $projectname = $request->route()->parameter('projectname');
         
         $data = [
-            'userId'=>$userId,
-            'projectId'=>$projectId
+            'userid'=>$userid,
+            'projectname'=>$projectname
         ];
         return view('projects.project', $data);
     }
@@ -47,7 +47,7 @@ class ProjectController extends Controller
         $user = Auth::user();
         $project = new Project;
         $project->projectname = $request->projectname;
-        $project->email = $user->email;
+        $project->userid = $user->userid;
         $project->datatype = $request->datatype;
         $project->description = $request->description;
         $project->privacy = $request->privacy;

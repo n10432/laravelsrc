@@ -8,7 +8,7 @@ class Project extends Model
 {
     protected $table = 'projects';
     protected $fillable = [
-        'projectname', 'email', 'datatype', 'description', 'privacy'
+        'projectname', 'userid', 'datatype', 'description', 'privacy'
     ];
     static $datatypes = [
         'テキスト', '画像'
