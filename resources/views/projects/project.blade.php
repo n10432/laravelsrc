@@ -23,6 +23,15 @@
     <tr>
     <th scope="row">1</th>
     <td>
+        <a class="navbar-brand" href="{{ url($userid . '/' . $projectname . '/raws') }}">
+        生データ一覧
+        </a>
+    </td>
+    </tr>
+    <tr>
+    <tr>
+    <th scope="row">1</th>
+    <td>
         <a class="navbar-brand" href="{{ url($userid . '/' . $projectname . '/new') }}">
         生データの追加
         </a>

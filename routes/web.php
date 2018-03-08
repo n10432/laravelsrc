@@ -34,6 +34,7 @@ Route::get('{userid}/{projectname}', 'ProjectController@project')->middleware('C
 
 
 Route::get('{userid}/{projectname}/new', 'RawController@new')->middleware('CheckProjectMiddleware');//新規生データの登録
+Route::post('{userid}/{projectname}/new', 'RawController@register')->middleware('CheckProjectMiddleware');//新規生データの登録
 Route::get('{userid}/{projectname}/raws', 'RawController@index')->middleware('CheckProjectMiddleware');//生データ一覧
 Route::get('{userid}/{projectname}/raw/{rawname}', 'RawController@raw')->middleware('CheckRawMiddleware');//生データの閲覧
 Route::get('{userid}/{projectname}/raw/{rawname}/format', 'RawController@format')->middleware('CheckRawMiddleware');//生データの加工

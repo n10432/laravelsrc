@@ -16,6 +16,7 @@ class CreateRawsTable extends Migration
         Schema::create('raws', function (Blueprint $table) {
             $table->increments('id');
             $table->string('rawname');
+            $table->string('filepath');
             $table->string('userid');
             $table->string('projectname');
             $table->string('description');

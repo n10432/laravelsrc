@@ -8,6 +8,6 @@ class Raw extends Model
 {
     protected $table = 'raws';
     protected $fillable = [
-        'rawname', 'username', 'projectid', 'description', 'description'
+        'rawname', 'filepath', 'userid', 'projectname', 'description'
     ];
 }
