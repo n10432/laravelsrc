@@ -8,6 +8,7 @@ use App\User;
 
 class RawController extends Controller
 {
+    //データ登録フォーム表示
     public function new(Request $request)
     {
         $userid = $request->route()->parameter('userid');
@@ -19,6 +20,34 @@ class RawController extends Controller
         return view('raws.new', $data);
     }
 
+    //rawデータの一覧表示
+    public function index(Request $request)
+    {
+        $userid = $request->route()->parameter('userid');
+        $projectname = $request->route()->parameter('projectname');
+        //useridとprojectnameで必要なrawデータを絞り込み
+        $raws = Raw::where('userid',$userid)->where('projectname',$projectname)->get();
+        $data = [
+            'raws'=>$raws,
+        ];
+        return view('raws.index', $data);
+    }
+    
+    //加工画面の表示
+    public function format(Request $request)
+    {
+        $userid = $request->route()->parameter('userid');
+        $projectname = $request->route()->parameter('projectname');
+        $rawname = $request->route()->parameter('rawname');
+        $data = [
+            'userid'=>$userid,
+            'projectname'=>$projectname,
+            'rawname'=>$rawname
+        ];
+        return view('raws.format', $data);
+    }
+
+    //データ登録フォームから送られてきたデータをモデルに登録
     public function register(Request $request)
     {
         $filepath = 'test';

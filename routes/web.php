@@ -38,6 +38,7 @@ Route::post('{userid}/{projectname}/new', 'RawController@register')->middleware(
 Route::get('{userid}/{projectname}/raws', 'RawController@index')->middleware('CheckProjectMiddleware');//生データ一覧
 Route::get('{userid}/{projectname}/raw/{rawname}', 'RawController@raw')->middleware('CheckRawMiddleware');//生データの閲覧
 Route::get('{userid}/{projectname}/raw/{rawname}/format', 'RawController@format')->middleware('CheckRawMiddleware');//生データの加工
+Route::post('{userid}/{projectname}/raw/{rawname}/format', 'RawController@formatregister')->middleware('CheckRawMiddleware');//生データの加工の登録
 
 Route::get('{userid}/{projectname}/format', 'FormatController@index')->middleware('CheckProjectMiddleware');//加工データの一覧
 Route::get('{userid}/{projectname}/format/new', 'FormatController@new')->middleware('CheckProjectMiddleware');//加工データの作成
