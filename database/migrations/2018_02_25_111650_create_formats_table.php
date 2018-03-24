@@ -17,6 +17,7 @@ class CreateFormatsTable extends Migration
             $table->increments('id');
             $table->string('formatname');
             $table->string('rawname');
+            $table->string('filepath');
             $table->string('userid');
             $table->string('projectname');
             $table->string('description');

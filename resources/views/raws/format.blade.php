@@ -9,7 +9,7 @@
  
         <div class="form-group">
             <label>ファイル名</label>
-            <input type="text" class="form-control" name="rawname" placeholder="raw data name">
+            <input type="text" class="form-control" name="formatname" placeholder="format data name">
         </div>
         
         <div class="form-group row">
